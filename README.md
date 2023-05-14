@@ -1,4 +1,4 @@
-# power_outage_eda_project
+# Power Outage EDA Project
 
 *Authors: Penelope King, Garvey Li*
 
