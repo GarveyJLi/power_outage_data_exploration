@@ -5,15 +5,11 @@
 
 ## Introduction
 
-### The Dataset and the Question
+### The Question and the Dataset
 
-This project is based on data collected on [major power outage events](https://www.sciencedirect.com/science/article/pii/S2352340918307182#t0005) that occurred in the United States. Each row of data contains information such as information about the outage time (year, month, start date, restoration date, start time, restoration time, duration), location (state, climate region, climate, NERC region), what caused the outage (categories such as severe weather, intentional attack, details about the categories, and the names of hurricanes if applicable), and the effects of the outage (number of customers affected, changes in peak demand). 
+Is the distribution of outage causes the same in both winter and summer?
 
-With this information available to us, we decided to ask the question: Is the distribution of outage causes the same in both winter and summer?
-
-
-
-
+This EDA project is based on data collected on [major power outage events](https://www.sciencedirect.com/science/article/pii/S2352340918307182#t0005) that occurred in the United States. Each row of data contains information relevant to our question such such as outage times (month, start date), location (U.S. climate regions, climate of location), and what caused the outage (categories such as severe weather, intentional attack, and details about the categories)
 
 ## Cleaning and EDA
 
