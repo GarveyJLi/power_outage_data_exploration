@@ -12,7 +12,7 @@
 Is the distribution of outages across U.S. climate regions the same in both winter and summer?
 
 
-This EDA project is based on data collected on [major power outage events](https://www.sciencedirect.com/science/article/pii/S2352340918307182#t0005) that occurred in the United States. Each row of data contains information relevant to our question such such as outage times (month, start date), location (U.S. climate regions, climate of location), and what caused the outage (categories such as severe weather, intentional attack, and details about the categories)
+This EDA project is based on data collected on [major power outage events](https://www.sciencedirect.com/science/article/pii/S2352340918307182#t0005) that occurred in the United States. Each row of data contains information relevant to our question such such as outage times (month, start date, start time), location (U.S. climate regions, climate of location), and what caused the outage (categories such as severe weather, intentional attack, and a column with some more specific details about the categories)
 
 ## Cleaning and EDA
 
@@ -76,7 +76,7 @@ For our analysis of missingness, we decided to look at the missingness of `CAUSE
 
 **YEAR**
 
-The first column we decided to analyze the missingness of `CAUSE.CATEGORY.DETAIL` was `YEAR`, and our hypotheses are as follows:
+The first column we decided to analyze the missingness of `CAUSE.CATEGORY.DETAIL` on, was `YEAR`, and our hypotheses are as follows:
 
 Null Hypothesis: The missingness of `CAUSE.CATEGORY.DETAIL` does not depend on `YEAR` with a significance level of 0.05.
 
@@ -96,10 +96,13 @@ Since our p-value (0.0) is lower than our significance level (0.05), we reject t
 
 **OUTAGE.START.TIME**
 
+The next column we decided to analyze the missingness of `CAUSE.CATEGORY.DETAIL` on, was `OUTAGE.START.TIME`, and our hypotheses are as follows:
 
 Null Hypothesis: The missingness of `CAUSE.CATEGORY.DETAIL` does not depend on `OUTAGE.START.TIME`
 
 Alternative Hypothesis: The missingness of `CAUSE.CATEGORY.DETAIL` does depend on `OUTAGE.START.TIME`
+
+Since `OUTAGE.START.TIME` is in the format `HH:MM:SS`, we decided to convert the times in a unit of `seconds` since `00:00`
 
 <iframe src="resources/det_time_missing_cdf.html" width=800 height=600 frameBorder=0></iframe>
 
