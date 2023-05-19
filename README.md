@@ -70,12 +70,23 @@ CLIMATE.REGION is NMAR. All outages in Alaska and Hawaii are missing CLIMATE.REG
 
 ### Missingness Dependency: MAR vs MCAR Imputation Tests
 
+Since the `MONTH` column is so integral to our question and analysis, we decided to investigate its missingness in relation to the `CLIMATE.REGION` and `YEAR` columns.
 
 
-<iframe src="resources/missingness-cdfs.html" width=800 height=600 frameBorder=0></iframe>
+**YEAR**
+
+<iframe src="resources/reg_det_missing.html" width=800 height=600 frameBorder=0></iframe>
+
+<iframe src="resources/reg_det_missing.html" width=800 height=600 frameBorder=0></iframe>
 
 
-<iframe src="resources/missingness-cdfs.html" width=800 height=600 frameBorder=0></iframe>
+**CLIMATE.REGION**
+<iframe src="resources/month_reg_dist.html" width=800 height=600 frameBorder=0></iframe>
+
+<iframe src="resources/reg_det_missing.html" width=800 height=600 frameBorder=0></iframe>
+
+
+
 
 ## Hypothesis Test
 Finally for the hypothesis test. 
