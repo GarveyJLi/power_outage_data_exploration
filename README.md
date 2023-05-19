@@ -76,17 +76,32 @@ For our analysis of missingness, we decided to look at the missingness of `CAUSE
 
 **YEAR**
 
+The first column we decided to analyze the missingness of `CAUSE.CATEGORY.DETAIL` was `YEAR`, and our hypotheses are as follows:
+
+Null Hypothesis: The missingness of `CAUSE.CATEGORY.DETAIL` does not depend on `YEAR` with a significance level of 0.05.
+
+Alternative Hypothesis: The missingness of `CAUSE.CATEGORY.DETAIL` does depend on `YEAR` with a significance level of 0.05.
+
+We calculated the TVD of the proportions of missing and not missing details per year and got an observed TVD of 0.2775. Looking at two distributions for missing and not missing, it seems as though they are extremely different. Which might suggest that the missingness of `CAUSE.CATEGORY.DETAIL` relies on the values of `YEAR`.
+
 <iframe src="resources/det_year_missing.html" width=800 height=600 frameBorder=0></iframe>
 
+After running 100,000 permutations on the `CAUSE.CATEGORY.DETAIL` column and computing the TVDs between missing and not missing for each `YEAR`, we got a p-value of 0, meaning that none of the permutations resulted in a TVD as large as the observed TVD.
+
 <iframe src="resources/det_year_missing_test.html" width=800 height=600 frameBorder=0></iframe>
+
+Since our p-value (0.0) is lower than our significance level (0.05), we reject the null hypothesis, so it is possible that the missingness of `CAUSE.CATEGORY.DETAIL` depends on `YEAR` so the missingness is MAR in relation to `CAUSE.CATEGORY.DETAIL`. 
+
 
 
 **OUTAGE.START.TIME**
 
+
+Null Hypothesis: The missingness of `CAUSE.CATEGORY.DETAIL` does not depend on `OUTAGE.START.TIME`
+
+Alternative Hypothesis: The missingness of `CAUSE.CATEGORY.DETAIL` does depend on `OUTAGE.START.TIME`
+
 <iframe src="resources/det_time_missing_cdf.html" width=800 height=600 frameBorder=0></iframe>
-
-
-
 
 
 
