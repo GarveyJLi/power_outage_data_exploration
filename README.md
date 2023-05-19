@@ -66,24 +66,26 @@ We also created a pivot table that looked at the distribution between summer and
 
 ### NMAR Analysis
 
-CLIMATE.REGION is NMAR. All outages in Alaska and Hawaii are missing CLIMATE.REGION because they are not a part of the continental United States, and therefore have no U.S Climate Region, so the null values in the CLIMATE.REGION column are dependent on the fact that Alaska and Hawaii have no U.S. Climate Region.
+The column CLIMATE.REGION is NMAR. All outages in Alaska and Hawaii are missing CLIMATE.REGION because they are not a part of the continental United States, and therefore have no U.S Climate Region. So, the null values in the CLIMATE.REGION column are dependent on the fact that Alaska and Hawaii have no U.S. Climate Region(It is not missing by design since the CLIMATE.REGION of Hawaii or Alaska cannot be inferred from any other columns, since the value does not exist). 
 
 ### Missingness Dependency: MAR vs MCAR Imputation Tests
 
-Since the `MONTH` column is so integral to our question and analysis, we decided to investigate its missingness in relation to the `CLIMATE.REGION` and `YEAR` columns.
+For our analysis of missingness, we decided to look at the missingness of `CAUSE.CATEGORY.DETAIL`. 30.7% of this column is missing values, so its missingness is not non-trivial.
+
 
 
 **YEAR**
 
-<iframe src="resources/reg_det_missing.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="resources/det_year_missing.html" width=800 height=600 frameBorder=0></iframe>
 
-<iframe src="resources/reg_det_missing.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="resources/det_year_missing_test.html" width=800 height=600 frameBorder=0></iframe>
 
 
-**CLIMATE.REGION**
-<iframe src="resources/month_reg_dist.html" width=800 height=600 frameBorder=0></iframe>
+**OUTAGE.START.TIME**
 
-<iframe src="resources/reg_det_missing.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="resources/det_time_missing_cdf.html" width=800 height=600 frameBorder=0></iframe>
+
+
 
 
 
