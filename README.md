@@ -71,6 +71,10 @@ CLIMATE.REGION is NMAR. All outages in Alaska and Hawaii are missing CLIMATE.REG
 ### Missingness Dependency: MAR vs MCAR Imputation Tests
 
 
+
+<iframe src="resources/missingness-cdfs.html" width=800 height=600 frameBorder=0></iframe>
+
+
 <iframe src="resources/missingness-cdfs.html" width=800 height=600 frameBorder=0></iframe>
 
 ## Hypothesis Test
