@@ -15,7 +15,9 @@ Is the distribution of outages across U.S. climate regions the same in both wint
 
 
 This EDA project is based on data collected on [major power outage events](https://www.sciencedirect.com/science/article/pii/S2352340918307182#t0005) that occurred in the United States. Each row of data contains information relevant to our question such such as outage times (month, start date, start time), location (U.S. climate regions, climate of location), and what caused the outage (categories such as severe weather, intentional attack, and a column with some more specific details about the categories)
+
 ___
+
 ## Cleaning and EDA
 
 ### Data Cleaning
@@ -32,6 +34,8 @@ In addition to this, Alaska and Hawaii are not assigned any U.S. Climate Regions
 
 `occ.head()`
 
+<div class="table-wrapper" markdown="block">
+
 |    |   YEAR |   MONTH | U.S._STATE   | POSTAL.CODE   | NERC.REGION   | CLIMATE.REGION     | CLIMATE.CATEGORY   | CAUSE.CATEGORY     | CAUSE.CATEGORY.DETAIL   | OUTAGE.START.DATE   | OUTAGE.RESTORATION.DATE   |   HURRICANE.NAMES | SEASON   |
 |---:|-------:|--------:|:-------------|:--------------|:--------------|:-------------------|:-------------------|:-------------------|:------------------------|:--------------------|:--------------------------|------------------:|:---------|
 |  0 |   2011 |       7 | Minnesota    | MN            | MRO           | East North Central | normal             | severe weather     | nan                     | 2011-07-01 00:00:00 | 2011-07-03 00:00:00       |               nan | summer   |
@@ -40,7 +44,7 @@ In addition to this, Alaska and Hawaii are not assigned any U.S. Climate Regions
 |  3 |   2012 |       6 | Minnesota    | MN            | MRO           | East North Central | normal             | severe weather     | thunderstorm            | 2012-06-19 00:00:00 | 2012-06-20 00:00:00       |               nan | summer   |
 |  4 |   2015 |       7 | Minnesota    | MN            | MRO           | East North Central | warm               | severe weather     | nan                     | 2015-07-18 00:00:00 | 2015-07-19 00:00:00       |               nan | summer   |
 
-
+</div>
 
 ### Univariate Analysis
 
