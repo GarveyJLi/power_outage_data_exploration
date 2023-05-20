@@ -1,3 +1,10 @@
+<style>
+
+.table-wrapper {
+    overflow-x: scroll;
+  }
+
+</style>
 
 # Icy Hot Power
 
