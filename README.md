@@ -6,15 +6,15 @@
 
 </style>
 
-# Icy Hot Power
+# **Icy Hot Power**
 
 *Authors: Penelope King, Garvey Li*
 
 ___
 
-## Introduction
+## **Introduction**
 
-### The Question and the Dataset
+### **The Question and the Dataset**
 
 (!) still have to add why dataset and question is important to readers
 
@@ -25,9 +25,9 @@ This EDA project is based on data collected on [major power outage events](https
 
 ___
 
-## Cleaning and EDA
+## **Cleaning and EDA**
 
-### Data Cleaning
+### **Data Cleaning**
 
 The first step we took in data cleaning was seeing which columns contained any missing values. We found that some of the columns contained a large number of null values, such as `HURRICANE.NAME`, `CAUSE.CATEGORY.DETAIL`, `DEMAND.LOWW.MW`, and `CUSTOMERS.AFFECTED`. However, since our question didn't require any data from these columns, we decided to leave them as null values. 
 
@@ -53,7 +53,7 @@ In addition to this, Alaska and Hawaii are not assigned any U.S. Climate Regions
 
 </div>
 
-### Univariate Analysis
+### **Univariate Analysis**
 
 Focusing on univariate analysis, we created a graph to see what the distribution of seasons looked like in our DataFrame via a bar graph. Looking at our graph, we noticed that there was a high number of summer and winter power outages that occurred in our dataset. It seems that power outages recorded happen a lot during the winter and summer months.
 
@@ -73,11 +73,10 @@ We also wanted to see which regions of the US had more winter caused accidents r
 
 <iframe src="resources/chloro.html" width=800 height=600 frameBorder=0></iframe>
 
-### Interesting Aggregates
+### **Interesting Aggregates**
 
 Aggregating the data in different ways in table format also allows us to have a better understanding of our data. Specifically we wanted to see what were the most common occurrences for power outages by CLIMATE.REGION. We looked at this to better understand if climate regions had a large difference in the representation of different months, seasons, states, and causes. Looking at the grouped table we created, we noticed that the modes of all the climate regions were limited to summer and winter seasons. Furthermore, the most represented cause categories in these various climate categories were severe weather, intentional attack, and islanding. This makes sense, since summer and winter are known to have more extreme weather than spring and fall. 
 
-<div class="table-wrapper" markdown="block">
 
 | CLIMATE.REGION       | YEAR                  | MONTH   | SEASON   | CAUSE.CATEGORY     |
 |:---------------------|:----------------------|:--------|:---------|:-------------------|
@@ -93,11 +92,9 @@ Aggregating the data in different ways in table format also allows us to have a 
 | West                 | 2015                  | 7.0     | winter   | severe weather     |
 | West North Central   | [2009 2010 2011 2013] | 6.0     | summer   | islanding          |
 
-</div>
 
 We also created a pivot table that looked at the distribution between summer and winter outages and the respective climate region that the outage occurred in. There seems to be some differences in some of the climate regions when it comes to if summer or winter has more power outages. We know that the US is known to have various climate regions with very different seasonal experiences. Summer and winter in particular are both seasons with extreme weather, but differ greatly between which area of the US a person is in. Would differences in weather affect the number of power outages between the two seasons? 
 
-<div class="table-wrapper" markdown="block">
 
 | CLIMATE.REGION       |   summer |   winter |
 |:---------------------|---------:|---------:|
@@ -113,22 +110,19 @@ We also created a pivot table that looked at the distribution between summer and
 | West                 |       61 |       62 |
 | West North Central   |        9 |        2 |
 
-</div>
-
-<iframe src="resources/pivot.html" width=800 height=600 frameBorder=0></iframe>
-
 ___
-## Assessment of Missingness
 
-### NMAR Analysis
+## **Assessment of Missingness**
+
+### **NMAR Analysis**
 
 The column CLIMATE.REGION is NMAR. All outages in Alaska and Hawaii are missing CLIMATE.REGION because they are not a part of the continental United States, and therefore have no U.S Climate Region. So, the null values in the CLIMATE.REGION column are dependent on the fact that Alaska and Hawaii have no U.S. Climate Region(We believe that it is not missing by design since the CLIMATE.REGION of Hawaii or Alaska cannot be inferred from any other columns, since the value does not exist). 
 
-### Missingness Dependency: MAR vs MCAR Imputation Tests
+### **Missingness Dependency: MAR vs MCAR Imputation Tests**
 
 For our analysis of missingness, we decided to look at the missingness of `CAUSE.CATEGORY.DETAIL`. 30.7% of this column is missing values, so its missingness is not non-trivial.
 
-#### YEAR
+#### **YEAR**
 
 The first column we decided to analyze the missingness of `CAUSE.CATEGORY.DETAIL` on, was `YEAR`, and our hypotheses are as follows:
 
@@ -146,7 +140,7 @@ After running 100,000 permutations on the `CAUSE.CATEGORY.DETAIL` column and com
 
 Since our p-value (0.0) is lower than our significance level (0.05), we reject the null hypothesis, so it is possible that the missingness of `CAUSE.CATEGORY.DETAIL` depends on `YEAR` so the missingness is MAR in relation to `CAUSE.CATEGORY.DETAIL`. 
 
-#### OUTAGE.START.TIME
+#### **OUTAGE.START.TIME**
 
 The next column we decided to analyze the missingness of `CAUSE.CATEGORY.DETAIL` on, was `OUTAGE.START.TIME`, and our hypotheses are as follows:
 
@@ -160,24 +154,24 @@ Since `OUTAGE.START.TIME` is in the format `HH:MM:SS`, we decided to convert the
 
 The p-value from this K-S 2 sample test was 0.1049, which is greater than our significance level of 0.05. Rherefore we fail to reject the null – it is possible that the missingness of `CAUSE.CATEGORY.DETAIL` does not depend on `OUTAGE.START.TIME` , so the missing values in the column `CAUSE.CATEGORY.DETAIL` is MCAR in relation to `OUTAGE.START.TIME`.
 ___
-## Hypothesis Test
+## **Hypothesis Test**
 Finally for the hypothesis test. 
 During the bivariate analysis we noticed that there seemed to be a difference between if a power outage would be more likely to occur during summer or winter depending on the climate region a person lived in. Could this be due to random chance?
 Specifically, we are testing the question: Does climate region power outage distribution across winter and summer seasons differ? 
 
 We set up our experiment like this:
 
-### Hypotheses
+### **Hypotheses**
 #### Null Hypothesis:
 In the population, the distribution of power outages for US climate regions are the same between summer and winter, and the observed differences in our sample are due to random chance.
 #### Alternative Hypothesis:
 In the population, the distribution of power outages of US climate region groups are different for summer and winter.
 
-### Testing
+### **Testing**
 Our test statistic was total variation distance (TVD) because we were looking at two different categorical distributions and how they differed from each other.
 We set our significance level to the standard level of 0.05. That is, we are aiming for a 95% confidence level. For this experiment we used a permutation test because we are testing to see if two different sample distributions come from the same population distribution.
 
-### Results and Discussion
+### **Results**
 Aftering running the permutation test, our p-value came to be around 0.0016.
 
 Our p-value was less than our set significance level (0.0016 < 0.05), so we reject the null in favor of the alternative hypothesis. It is possible that in the US, a person can experience differing levels of summer or winter power outages based on what U.S. climate region they live in.
