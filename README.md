@@ -77,9 +77,43 @@ We also wanted to see which regions of the US had more winter caused accidents r
 
 Aggregating the data in different ways in table format also allows us to have a better understanding of our data. Specifically we wanted to see what were the most common occurrences for power outages by CLIMATE.REGION. We looked at this to better understand if climate regions had a large difference in the representation of different months, seasons, states, and causes. Looking at the grouped table we created, we noticed that the modes of all the climate regions were limited to summer and winter seasons. Furthermore, the most represented cause categories in these various climate categories were severe weather, intentional attack, and islanding. This makes sense, since summer and winter are known to have more extreme weather than spring and fall. 
 
-<iframe src="resources/groupby1.html" width=800 height=600 frameBorder=0></iframe>
+<div class="table-wrapper" markdown="block">
+
+| CLIMATE.REGION       | YEAR                  | MONTH   | SEASON   | CAUSE.CATEGORY     |
+|:---------------------|:----------------------|:--------|:---------|:-------------------|
+| Central              | 2011                  | 6.0     | summer   | severe weather     |
+| East North Central   | 2014                  | [6. 7.] | summer   | severe weather     |
+| North Temperate Zone | 2000                  | []      | summer   | equipment failure  |
+| Northeast            | 2011                  | 10.0    | summer   | severe weather     |
+| Northwest            | 2011                  | 12.0    | winter   | intentional attack |
+| South                | 2011                  | 8.0     | summer   | severe weather     |
+| Southeast            | 2004                  | 8.0     | summer   | severe weather     |
+| Southwest            | 2013                  | 2.0     | winter   | intentional attack |
+| Tropics              | 2006                  | 10.0    | fall     | severe weather     |
+| West                 | 2015                  | 7.0     | winter   | severe weather     |
+| West North Central   | [2009 2010 2011 2013] | 6.0     | summer   | islanding          |
+
+</div>
 
 We also created a pivot table that looked at the distribution between summer and winter outages and the respective climate region that the outage occurred in. There seems to be some differences in some of the climate regions when it comes to if summer or winter has more power outages. We know that the US is known to have various climate regions with very different seasonal experiences. Summer and winter in particular are both seasons with extreme weather, but differ greatly between which area of the US a person is in. Would differences in weather affect the number of power outages between the two seasons? 
+
+<div class="table-wrapper" markdown="block">
+
+| CLIMATE.REGION       |   summer |   winter |
+|:---------------------|---------:|---------:|
+| Central              |       87 |       45 |
+| East North Central   |       55 |       27 |
+| North Temperate Zone |        1 |      nan |
+| Northeast            |      112 |       83 |
+| Northwest            |       38 |       47 |
+| South                |       87 |       46 |
+| Southeast            |       55 |       43 |
+| Southwest            |       25 |       29 |
+| Tropics              |        1 |        1 |
+| West                 |       61 |       62 |
+| West North Central   |        9 |        2 |
+
+</div>
 
 <iframe src="resources/pivot.html" width=800 height=600 frameBorder=0></iframe>
 
