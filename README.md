@@ -16,9 +16,9 @@ ___
 
 ### **The Question and the Dataset**
 
-(!) still have to add why dataset and question is important to readers
+Throughout a year, many individuals experience power outages. Some individuals experience experience almost continuous or regular outages, while some may experience none at all. For some, outages only occur during specific seasons. Take California, for example: Power outages during the summer and early fall are not uncommon, as high winds and dry grass create the ideal conditions for wild fires when combined with power lines. As a result, we believe that one large factor in how many outages an individual experiences may be related to the climate of the region and the seasons, which brings us to the question:
 
-Is the distribution of outages across U.S. climate regions the same in both winter and summer?
+**Is the distribution of outages across U.S. climate regions the same in both winter and summer?**
 
 
 This EDA project is based on data collected on [major power outage events](https://www.sciencedirect.com/science/article/pii/S2352340918307182#t0005) that occurred in the United States. Each row of data contains information relevant to our question such such as outage times (month, start date, start time), location (U.S. climate regions, climate of location), and what caused the outage (categories such as severe weather, intentional attack, and a column with some more specific details about the categories)
@@ -63,7 +63,7 @@ We also looked at the distribution for different causes for power outages in our
 
 <iframe src="resources/univariate_2.html" width=800 height=600 frameBorder=0></iframe>
 
-### Bivariate Analysis
+### **Bivariate Analysis**
 
 After looking at different trends in individual columns of the dataset, we moved onto bivariate analysis to see what interactions between columns were happening in our data. Specifically we looked at what the distribution of seasons were for each cause for power outage in CAUSE.CATEGORY. We noticed that summer was highly represented in public appeal and equipment failure. Winter was the highest proportion of outages caused by fuel supply emergencies.
 
