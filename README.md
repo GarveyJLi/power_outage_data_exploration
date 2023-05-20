@@ -28,13 +28,13 @@ Understanding how the distribution of power outages in climate regions may diffe
 This EDA project is based on data collected on [major power outage events](https://www.sciencedirect.com/science/article/pii/S2352340918307182#t0005) that occurred in the United States. This dataset consists of 1534 rows, where each represents a power outage occurance in the United States. The columns in this dataset that are relevant to our question are titled as: 
 `MONTH`: An integer representing the month that the power outage occured in
 `YEAR`: The year in which the outage occured as an integer
-`U.S_STATE`: A string representing the state that the outage occured in
-`POSTAL.CODE`: A string postal code representation of the state (e.g. California's postal code is CA)
-`CLIMATE.REGION`: The common US climate region that the location of the power outage is a part of
-`CLIMATE.CATEGORY`: The category of the climate at the time, there are only 3 types (cold, normal, warm)
+`U.S_STATE`: A string representing the name of the state that the outage occured in
+`POSTAL.CODE`: A string representation of the postal code of the state (e.g. California's postal code is CA)
+`CLIMATE.REGION`: The common US climate region that the location of the power outage is a part of (e.g. Midwest)
+`CLIMATE.CATEGORY`: The category of the climate at the time (cold, normal, or warm)
 `CAUSE.CATEGORY`: The cause of the power outage (severe weather, intentional attack, system operability disruption, public appeal, equipment failure, fuel supply emergency, islanding)
 `CAUSE.CATEGORY.DETAIL`: Additional details to the cause for the power outage
-`OUTAGE.START.TIME`: The start time of the power outage
+`OUTAGE.START.TIME`: The start time of the power outage (`HH:MM:SS`)
 
 
 
