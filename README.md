@@ -18,12 +18,23 @@ ___
 
 ### **The Question and the Dataset**
 
-Throughout a year, many individuals experience power outages. Some individuals experience experience almost continuous or regular outages, while some may experience none at all. For some, outages only occur during specific seasons. Take California, for example: Power outages during the summer and early fall are not uncommon, as high winds and dry grass create the ideal conditions for wild fires when combined with power lines. As a result, we believe that one large factor in how many outages an individual experiences may be related to the climate of the region and the seasons, which brings us to the question:
+Power outages pose as a hinderance to the lives of many people, especially since many modern inventions rely on the use of electricity in order to function. Power outages can be distruptions to many of our modern conveniences as well, in areas such as transportation, communication, medical, and food. Keeping track and noticing trends in power outages is especially important to help become more knowledgeable about how to predict and prevent power outages to help the quality of lives of many. Specifically for our focus for this project, we are focusing on noticing trends about power outages to help gain a greater understanding of how power outages may act depending on differing factors of where a person may live in the United States.
 
 **Is the distribution of outages across U.S. climate regions the same in both winter and summer?**
 
+Understanding how the distribution of power outages in climate regions may differ between seasons of extreme weather (summer and winter) is important to better predicting outages and when to expect them. It also helps us better understand the nature of power outages in the United States, and can help us tell if differences in weather affect power outages.
 
-This EDA project is based on data collected on [major power outage events](https://www.sciencedirect.com/science/article/pii/S2352340918307182#t0005) that occurred in the United States. Each row of data contains information relevant to our question such such as outage times (month, start date, start time), location (U.S. climate regions, climate of location), and what caused the outage (categories such as severe weather, intentional attack, and a column with some more specific details about the categories)
+
+This EDA project is based on data collected on [major power outage events](https://www.sciencedirect.com/science/article/pii/S2352340918307182#t0005) that occurred in the United States. This dataset consists of 1534 rows, where each represents a power outage occurance in the United States. The columns in this dataset that are relevant to our question are titled as: 
+`MONTH`: An integer representing the month that the power outage occured in
+`YEAR`: The year in which the outage occured as an integer
+`U.S_STATE`: A string representing the state that the outage occured in
+`POSTAL.CODE`: A string postal code representation of the state (e.g. California's postal code is CA)
+`CLIMATE.REGION`: The common US climate region that the location of the power outage is a part of
+`CLIMATE.CATEGORY`: The category of the climate at the time, there are only 3 types (cold, normal, warm)
+`CAUSE.CATEGORY`: The cause of the power outage (severe weather, intentional attack, system operability disruption, public appeal, equipment failure, fuel supply emergency, islanding)
+`CAUSE.CATEGORY.DETAIL`: Additional details to the cause for the power outage
+`OUTAGE.START.TIME`: The start time of the power outage
 
 
 
