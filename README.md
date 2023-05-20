@@ -2,6 +2,7 @@
 
 *Authors: Penelope King, Garvey Li*
 
+___
 
 ## Introduction
 
@@ -13,7 +14,7 @@ Is the distribution of outages across U.S. climate regions the same in both wint
 
 
 This EDA project is based on data collected on [major power outage events](https://www.sciencedirect.com/science/article/pii/S2352340918307182#t0005) that occurred in the United States. Each row of data contains information relevant to our question such such as outage times (month, start date, start time), location (U.S. climate regions, climate of location), and what caused the outage (categories such as severe weather, intentional attack, and a column with some more specific details about the categories)
-
+___
 ## Cleaning and EDA
 
 ### Data Cleaning
@@ -29,7 +30,16 @@ For the remaining 8 rows that didn't have any explicit information regarding tim
 In addition to this, Alaska and Hawaii are not assigned any U.S. Climate Regions, so we assigned the climate regions `Northern Temperate` and `Tropics` to them, respectively.
 
 `occ.head()`
-<iframe src="resources/occ-head.html" width=800 height=600 frameBorder=0></iframe>
+
+|    |   YEAR |   MONTH | U.S._STATE   | POSTAL.CODE   | NERC.REGION   | CLIMATE.REGION     | CLIMATE.CATEGORY   | CAUSE.CATEGORY     | CAUSE.CATEGORY.DETAIL   | OUTAGE.START.DATE   | OUTAGE.RESTORATION.DATE   |   HURRICANE.NAMES | SEASON   |
+|---:|-------:|--------:|:-------------|:--------------|:--------------|:-------------------|:-------------------|:-------------------|:------------------------|:--------------------|:--------------------------|------------------:|:---------|
+|  0 |   2011 |       7 | Minnesota    | MN            | MRO           | East North Central | normal             | severe weather     | nan                     | 2011-07-01 00:00:00 | 2011-07-03 00:00:00       |               nan | summer   |
+|  1 |   2014 |       5 | Minnesota    | MN            | MRO           | East North Central | normal             | intentional attack | vandalism               | 2014-05-11 00:00:00 | 2014-05-11 00:00:00       |               nan | spring   |
+|  2 |   2010 |      10 | Minnesota    | MN            | MRO           | East North Central | cold               | severe weather     | heavy wind              | 2010-10-26 00:00:00 | 2010-10-28 00:00:00       |               nan | fall     |
+|  3 |   2012 |       6 | Minnesota    | MN            | MRO           | East North Central | normal             | severe weather     | thunderstorm            | 2012-06-19 00:00:00 | 2012-06-20 00:00:00       |               nan | summer   |
+|  4 |   2015 |       7 | Minnesota    | MN            | MRO           | East North Central | warm               | severe weather     | nan                     | 2015-07-18 00:00:00 | 2015-07-19 00:00:00       |               nan | summer   |
+
+
 
 ### Univariate Analysis
 
@@ -61,20 +71,18 @@ We also created a pivot table that looked at the distribution between summer and
 
 <iframe src="resources/pivot.html" width=800 height=600 frameBorder=0></iframe>
 
-
+___
 ## Assessment of Missingness
 
 ### NMAR Analysis
 
-The column CLIMATE.REGION is NMAR. All outages in Alaska and Hawaii are missing CLIMATE.REGION because they are not a part of the continental United States, and therefore have no U.S Climate Region. So, the null values in the CLIMATE.REGION column are dependent on the fact that Alaska and Hawaii have no U.S. Climate Region(It is not missing by design since the CLIMATE.REGION of Hawaii or Alaska cannot be inferred from any other columns, since the value does not exist). 
+The column CLIMATE.REGION is NMAR. All outages in Alaska and Hawaii are missing CLIMATE.REGION because they are not a part of the continental United States, and therefore have no U.S Climate Region. So, the null values in the CLIMATE.REGION column are dependent on the fact that Alaska and Hawaii have no U.S. Climate Region(We believe that it is not missing by design since the CLIMATE.REGION of Hawaii or Alaska cannot be inferred from any other columns, since the value does not exist). 
 
 ### Missingness Dependency: MAR vs MCAR Imputation Tests
 
 For our analysis of missingness, we decided to look at the missingness of `CAUSE.CATEGORY.DETAIL`. 30.7% of this column is missing values, so its missingness is not non-trivial.
 
-
-
-**YEAR**
+#### YEAR
 
 The first column we decided to analyze the missingness of `CAUSE.CATEGORY.DETAIL` on, was `YEAR`, and our hypotheses are as follows:
 
@@ -92,9 +100,7 @@ After running 100,000 permutations on the `CAUSE.CATEGORY.DETAIL` column and com
 
 Since our p-value (0.0) is lower than our significance level (0.05), we reject the null hypothesis, so it is possible that the missingness of `CAUSE.CATEGORY.DETAIL` depends on `YEAR` so the missingness is MAR in relation to `CAUSE.CATEGORY.DETAIL`. 
 
-
-
-**OUTAGE.START.TIME**
+#### OUTAGE.START.TIME
 
 The next column we decided to analyze the missingness of `CAUSE.CATEGORY.DETAIL` on, was `OUTAGE.START.TIME`, and our hypotheses are as follows:
 
@@ -102,12 +108,12 @@ Null Hypothesis: The missingness of `CAUSE.CATEGORY.DETAIL` does not depend on `
 
 Alternative Hypothesis: The missingness of `CAUSE.CATEGORY.DETAIL` does depend on `OUTAGE.START.TIME`
 
-Since `OUTAGE.START.TIME` is in the format `HH:MM:SS`, we decided to convert the times in a unit of `seconds` since `00:00`
+Since `OUTAGE.START.TIME` is in the format `HH:MM:SS`, we decided to convert the times in a unit of `seconds` since `00:00:00`. From there, we split up the data into to Series: One where `CAUSE.CATEGORY.DETAIL` was missing and one where it wan't missing. We then ran a K-S 2 sample test(since the distributions were quantitative/numeric) on the two Series of data and got the following CDFs.
 
 <iframe src="resources/det_time_missing_cdf.html" width=800 height=600 frameBorder=0></iframe>
 
-
-
+The p-value from this K-S 2 sample test was 0.1049, which is greater than our significance level of 0.05. Rherefore we fail to reject the null – it is possible that the missingness of `CAUSE.CATEGORY.DETAIL` does not depend on `OUTAGE.START.TIME` , so the missing values in the column `CAUSE.CATEGORY.DETAIL` is MCAR in relation to `OUTAGE.START.TIME`.
+___
 ## Hypothesis Test
 Finally for the hypothesis test. 
 During the bivariate analysis we noticed that there seemed to be a difference between if a power outage would be more likely to occur during summer or winter depending on the climate region a person lived in. Could this be due to random chance?
