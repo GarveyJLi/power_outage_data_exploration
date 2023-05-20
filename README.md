@@ -1,5 +1,3 @@
-# Icy-Hot Power
-
 *Authors: Penelope King, Garvey Li*
 
 ___
