@@ -135,6 +135,6 @@ Aftering running the permutation test, our p-value came to be around 0.0016.
 Our p-value was less than our set significance level (0.0016 < 0.05), so we reject the null in favor of the alternative hypothesis. It is possible that in the US, a person can experience differing levels of summer or winter power outages based on what U.S. climate region they live in.
 
 
-<iframe src="resources/bar-cause-cat.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="resources/final_permutation_dist.html" width=800 height=600 frameBorder=0></iframe>
 
 
