@@ -10,9 +10,11 @@
 
 *Authors: Penelope King, Garvey Li*
 
-___
+
 
 ## **Introduction**
+
+___
 
 ### **The Question and the Dataset**
 
@@ -23,9 +25,11 @@ Throughout a year, many individuals experience power outages. Some individuals e
 
 This EDA project is based on data collected on [major power outage events](https://www.sciencedirect.com/science/article/pii/S2352340918307182#t0005) that occurred in the United States. Each row of data contains information relevant to our question such such as outage times (month, start date, start time), location (U.S. climate regions, climate of location), and what caused the outage (categories such as severe weather, intentional attack, and a column with some more specific details about the categories)
 
-___
+
 
 ## **Cleaning and EDA**
+
+___
 
 ### **Data Cleaning**
 
@@ -110,9 +114,11 @@ We also created a pivot table that looked at the distribution between summer and
 | West                 |       61 |       62 |
 | West North Central   |        9 |        2 |
 
-___
+
 
 ## **Assessment of Missingness**
+
+___
 
 ### **NMAR Analysis**
 
@@ -153,8 +159,12 @@ Since `OUTAGE.START.TIME` is in the format `HH:MM:SS`, we decided to convert the
 <iframe src="resources/det_time_missing_cdf.html" width=800 height=600 frameBorder=0></iframe>
 
 The p-value from this K-S 2 sample test was 0.1049, which is greater than our significance level of 0.05. Rherefore we fail to reject the null – it is possible that the missingness of `CAUSE.CATEGORY.DETAIL` does not depend on `OUTAGE.START.TIME` , so the missing values in the column `CAUSE.CATEGORY.DETAIL` is MCAR in relation to `OUTAGE.START.TIME`.
-___
+
+
 ## **Hypothesis Test**
+
+___
+
 Finally for the hypothesis test. 
 During the bivariate analysis we noticed that there seemed to be a difference between if a power outage would be more likely to occur during summer or winter depending on the climate region a person lived in. Could this be due to random chance?
 Specifically, we are testing the question: Does climate region power outage distribution across winter and summer seasons differ? 
